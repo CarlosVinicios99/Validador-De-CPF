@@ -4,15 +4,26 @@ function obterCpfDigitado(){
 }
 
 function separarDigitos(cpf){
-    const digitosCpf = []
+    const digitosDoCpf = []
     for(let i = 0; i < cpf.length - 2; i++){
-        digitosCpf.push(cpf.charAt(i))
+        digitosDoCpf.push(cpf.charAt(i))
     }
-    return digitosDoCpf
+    return digitosDoCpf             
 }
 
 function calcularPrimeiroDigito(digitosDoCpf){
-    //return primeiroDigito
+    multiplicador = 10
+    const numerosMultiplicados = []
+
+    for(let i in digitosDoCpf){
+        numerosMultiplicados.push(digitosDoCpf[i] * multiplicador)
+        multiplicador--
+    }
+
+    let primeiroDigito = numerosMultiplicados.reduce((acum, numero) => numero + acum) % 11
+
+    primeiroDigito > 9 ? 0 : primeiroDigito
+    return primeiroDigito
 }
 
 function calcularSegundoDigito(digitosDoCpf){
@@ -33,7 +44,6 @@ function exibirResultado(verificacao){
 
 (function(){
     const botaoValidar = document.querySelector("#validar")
-
     botaoValidar.addEventListener('click', function(e){
         e.preventDefault()
         const cpfDigitado = obterCpfDigitado()
