@@ -27,7 +27,18 @@ function calcularPrimeiroDigito(digitosDoCpf){
 }
 
 function calcularSegundoDigito(digitosDoCpf){
-    //return segundoDigito
+    multiplicador = 11
+    const numerosMultiplicados = []
+
+    for(let i in digitosDoCpf){
+        numerosMultiplicados.push(digitosDoCpf[i] * multiplicador)
+        multiplicador--
+    }
+
+    let segundoDigito = numerosMultiplicados.reduce((acum, numero) => numero + acum) % 11
+
+    segundoDigito > 9 ? 0 : segundoDigito
+    return segundoDigito
 }
 
 function agruparDigitos(digitosDoCpf){
