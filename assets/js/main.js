@@ -42,7 +42,11 @@ function calcularSegundoDigito(digitosDoCpf){
 }
 
 function agruparDigitos(digitosDoCpf){
-    //return cpf calculado
+    let cpfCalculado = ""
+    for(let i in digitosDoCpf){
+        cpfCalculado = cpfCalculado.concat(digitosDoCpf[i])
+    }
+    return cpfCalculado
 }
 
 function verificarCpf(cpfDigitado, cpfCalculado){
@@ -50,7 +54,7 @@ function verificarCpf(cpfDigitado, cpfCalculado){
 }
 
 function exibirResultado(verificacao){
-    
+
     if(verificacao){
 
     }
