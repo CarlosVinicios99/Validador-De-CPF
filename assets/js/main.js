@@ -46,11 +46,17 @@ function agruparDigitos(digitosDoCpf){
 }
 
 function verificarCpf(cpfDigitado, cpfCalculado){
-    //return verificacao
+    return cpfDigitado == cpfCalculado ? true : false
 }
 
 function exibirResultado(verificacao){
-    //mostrar mensagem da verficiacao na div de resultado
+    
+    if(verificacao){
+
+    }
+    else{
+
+    }
 }
 
 (function(){
