@@ -56,13 +56,16 @@ function verificarCpf(cpfDigitado, cpfCalculado){
 }
 
 function exibirResultado(verificacao){
+    const resultado = document.querySelector(".resultado-validacao")
 
     if(verificacao){
-        
+        resultado.innerHTML = "CPF VÁLIDO!"
+        resultado.classList.add("resultado-validacao-verdadeiro")
     }
     else{
-        
-    }
+        resultado.innerHTML = "CPF INVÁLIDO!"
+        resultado.classList.add("resultado-validacao-falso")
+    }   
 }
 
 (function(){
@@ -73,12 +76,10 @@ function exibirResultado(verificacao){
         const digitosDoCpf = separarDigitos(cpfDigitado)
         
         const primeiroDigito = calcularPrimeiroDigito(digitosDoCpf)
-        console.log(primeiroDigito)
         digitosDoCpf.push(primeiroDigito)
 
         const segundoDigito = calcularSegundoDigito(digitosDoCpf)
         digitosDoCpf.push(segundoDigito)
-        console.log(segundoDigito)
         
         const cpfCalculado = agruparDigitos(digitosDoCpf)
         const verificacao = verificarCpf(cpfDigitado, cpfCalculado)

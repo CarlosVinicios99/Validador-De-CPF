@@ -36,6 +36,24 @@ input{
     width: 300px;
 }
 
+.resultado-validacao {
+    padding-top: 30px;
+    font-size: 35px;
+    font-weight: bolder;
+}
+
+#cpf {
+    font-size: 20px;
+}
+
+.resultado-validacao-verdadeiro{
+    color: green;
+}
+
+.resultado-validacao-falso{
+    color: red;
+}
+
 button {
     font-size: 1.1em;
     height: 40px;
