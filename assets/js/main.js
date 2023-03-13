@@ -12,22 +12,23 @@ function separarDigitos(cpf){
 }
 
 function calcularPrimeiroDigito(digitosDoCpf){
-    multiplicador = 10
+    let multiplicador = 10
     const numerosMultiplicados = []
-
+    
     for(let i in digitosDoCpf){
         numerosMultiplicados.push(digitosDoCpf[i] * multiplicador)
         multiplicador--
     }
 
-    let primeiroDigito = numerosMultiplicados.reduce((acum, numero) => numero + acum) % 11
+    let primeiroDigito = numerosMultiplicados.reduce((acum, numero) => numero + acum)
+    primeiroDigito = 11 - (primeiroDigito % 11)
 
     primeiroDigito > 9 ? 0 : primeiroDigito
     return primeiroDigito
 }
 
 function calcularSegundoDigito(digitosDoCpf){
-    multiplicador = 11
+    let multiplicador = 11
     const numerosMultiplicados = []
 
     for(let i in digitosDoCpf){
@@ -35,7 +36,8 @@ function calcularSegundoDigito(digitosDoCpf){
         multiplicador--
     }
 
-    let segundoDigito = numerosMultiplicados.reduce((acum, numero) => numero + acum) % 11
+    let segundoDigito = numerosMultiplicados.reduce((acum, numero) => numero + acum)
+    segundoDigito = 11 - (segundoDigito % 11)
 
     segundoDigito > 9 ? 0 : segundoDigito
     return segundoDigito
@@ -56,10 +58,10 @@ function verificarCpf(cpfDigitado, cpfCalculado){
 function exibirResultado(verificacao){
 
     if(verificacao){
-
+        
     }
     else{
-
+        
     }
 }
 
@@ -69,16 +71,17 @@ function exibirResultado(verificacao){
         e.preventDefault()
         const cpfDigitado = obterCpfDigitado()
         const digitosDoCpf = separarDigitos(cpfDigitado)
-
+        
         const primeiroDigito = calcularPrimeiroDigito(digitosDoCpf)
+        console.log(primeiroDigito)
         digitosDoCpf.push(primeiroDigito)
 
         const segundoDigito = calcularSegundoDigito(digitosDoCpf)
-        digitosDoCpf(segundoDigito)
-    
+        digitosDoCpf.push(segundoDigito)
+        console.log(segundoDigito)
+        
         const cpfCalculado = agruparDigitos(digitosDoCpf)
         const verificacao = verificarCpf(cpfDigitado, cpfCalculado)
         exibirResultado(verificacao)
     })
 })()
-
