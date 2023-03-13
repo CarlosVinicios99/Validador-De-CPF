@@ -60,10 +60,12 @@ function exibirResultado(verificacao){
 
     if(verificacao){
         resultado.innerHTML = "CPF VÁLIDO!"
+        resultado.classList.remove("resultado-validacao-falso")
         resultado.classList.add("resultado-validacao-verdadeiro")
     }
     else{
         resultado.innerHTML = "CPF INVÁLIDO!"
+        resultado.classList.remove("resultado-validacao-verdadeiro")
         resultado.classList.add("resultado-validacao-falso")
     }   
 }
